@@ -1,0 +1,108 @@
+{
+  "720p-francais": {
+    "format": "bv*[height<=720][lang=fr]/bv*[height<=720]+ba[lang=fr]/bv*[height<=720]+ba/b",
+    "formatsort": ["res:720", "lang:fr", "codec:h264", "ext:mp4"],
+    "merge_output_format": "mp4",
+    "writesubtitles": true,
+    "writeautomaticsub": true,
+    "subtitleslangs": ["fr", "en"],
+    "postprocessors": [
+      {"key": "FFmpegMetadata", "add_metadata": true, "add_chapters": true},
+      {"key": "EmbedThumbnail"},
+      {"key": "FFmpegEmbedSubtitle", "already_have_subtitle": false}
+    ]
+  },
+  "1080p-francais": {
+    "format": "bv*[height<=1080][lang=fr]/bv*[height<=1080]+ba[lang=fr]/bv*[height<=1080]+ba/b",
+    "formatsort": ["res:1080", "lang:fr", "codec:h264", "ext:mp4"],
+    "merge_output_format": "mp4",
+    "writesubtitles": true,
+    "writeautomaticsub": true,
+    "subtitleslangs": ["fr", "en"],
+    "postprocessors": [
+      {"key": "FFmpegMetadata", "add_metadata": true, "add_chapters": true},
+      {"key": "EmbedThumbnail"},
+      {"key": "FFmpegEmbedSubtitle", "already_have_subtitle": false}
+    ]
+  },
+  "audio-mp3-francais": {
+    "format": "ba[lang=fr][acodec^=mp3]/ba[lang=fr]/ba",
+    "formatsort": ["lang:fr", "acodec:mp3", "abr:192"],
+    "extract_audio": true,
+    "audio_format": "mp3",
+    "audio_quality": 0,
+    "writethumbnail": true,
+    "postprocessors": [
+      {"key": "FFmpegMetadata", "add_metadata": true},
+      {"key": "EmbedThumbnail"}
+    ]
+  },
+  "audio-flac-francais": {
+    "format": "ba[lang=fr]/ba",
+    "formatsort": ["lang:fr"],
+    "extract_audio": true,
+    "audio_format": "flac",
+    "audio_quality": 0,
+    "writethumbnail": true,
+    "postprocessors": [
+      {"key": "FFmpegMetadata", "add_metadata": true},
+      {"key": "EmbedThumbnail"}
+    ]
+  },
+  "audio-mp3": {
+    "format": "ba[acodec^=mp3]/ba/b",
+    "formatsort": ["acodec:mp3", "abr:192"],
+    "extract_audio": true,
+    "audio_format": "mp3",
+    "audio_quality": 0,
+    "writethumbnail": true,
+    "postprocessors": [
+      {"key": "FFmpegMetadata", "add_metadata": true},
+      {"key": "EmbedThumbnail"}
+    ]
+  },
+  "audio-flac": {
+    "format": "ba/b",
+    "extract_audio": true,
+    "audio_format": "flac",
+    "audio_quality": 0,
+    "writethumbnail": true,
+    "postprocessors": [
+      {"key": "FFmpegMetadata", "add_metadata": true},
+      {"key": "EmbedThumbnail"}
+    ]
+  },
+  "best-quality": {
+    "format": "bv*[lang=fr]+ba[lang=fr]/bv*+ba/b",
+    "formatsort": ["res", "lang:fr", "codec:h264", "ext:mp4"],
+    "merge_output_format": "mp4",
+    "writesubtitles": true,
+    "writeautomaticsub": true,
+    "subtitleslangs": ["fr", "en"],
+    "writethumbnail": true,
+    "postprocessors": [
+      {"key": "FFmpegMetadata", "add_metadata": true, "add_chapters": true},
+      {"key": "EmbedThumbnail"},
+      {"key": "FFmpegEmbedSubtitle", "already_have_subtitle": false}
+    ]
+  },
+  "mobile-360p": {
+    "format": "bv*[height<=360][lang=fr]/bv*[height<=360]+ba[lang=fr]/bv*[height<=360]+ba/b",
+    "formatsort": ["res:360", "lang:fr", "ext:mp4"],
+    "merge_output_format": "mp4",
+    "writesubtitles": true,
+    "writeautomaticsub": true,
+    "subtitleslangs": ["fr", "en"]
+  },
+  "no-subs": {
+    "writesubtitles": false,
+    "writeautomaticsub": false
+  },
+  "subtitles-only": {
+    "skip_download": true,
+    "writesubtitles": true,
+    "writeautomaticsub": true,
+    "subtitleslangs": ["fr", "en"],
+    "subtitlesformat": "srt/best"
+  }
+}

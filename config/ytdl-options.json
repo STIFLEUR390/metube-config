@@ -1,0 +1,44 @@
+{
+  "writesubtitles": true,
+  "writeautomaticsub": true,
+  "subtitleslangs": ["fr", "en"],
+  "subtitlesformat": "srt/best",
+  "writethumbnail": true,
+  "writeinfojson": true,
+  "format": "bv*[height<=720][lang=fr]/bv*[height<=720]+ba[lang=fr]/bv*[height<=720]+ba/b",
+  "formatsort": ["res:720", "lang:fr", "codec:h264", "ext:mp4"],
+  "merge_output_format": "mp4",
+  "retries": 3,
+  "fragment_retries": 3,
+  "concurrent_fragment_downloads": 4,
+  "downloader": "default",
+  "ratelimit": null,
+  "sleep_requests": 0.5,
+  "sleep_interval": 2,
+  "max_sleep_interval": 5,
+  "ignoreerrors": true,
+  "no_warnings": false,
+  "extract_flat": false,
+  "lazy_playlist": false,
+  "updatetime": false,
+  "postprocessors": [
+    {
+      "key": "FFmpegMetadata",
+      "add_metadata": true,
+      "add_chapters": true
+    },
+    {
+      "key": "EmbedThumbnail"
+    },
+    {
+      "key": "FFmpegEmbedSubtitle",
+      "already_have_subtitle": false
+    }
+  ],
+  "postprocessor_args": {
+    "embedthumbnail+ffmpeg_o": [
+      "-c:v", "mjpeg",
+      "-vf", "crop='if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'"
+    ]
+  }
+}
